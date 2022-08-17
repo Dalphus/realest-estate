@@ -9,7 +9,6 @@
 
 *, *::before, *::after {
   box-sizing: border-box;
-  color: rgb(100, 100, 100);
 }
 * {
   margin: 0;
