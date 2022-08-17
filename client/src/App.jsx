@@ -3,14 +3,18 @@ import React from 'react';
 import Search from './Search';
 import NoteView from './NoteView';
 import Discovery from './Discovery';
+import AddNote from './AddNote';
 
 function App() {
   return (<>
-    <div className="left-container">
-      <Search />
-      <NoteView />
+    <div className="container">
+      <div className="note-viewer">
+        <Search />
+        <NoteView />
+      </div>
+      <Discovery />
     </div>
-    <Discovery />
+    <AddNote />
   </>)
 }
 

@@ -4,7 +4,9 @@ import Note from './Note';
 
 function Discovery() {
   return (
-    <Note text="bad note" />
+    <div id="discovery">
+      <Note text="bad note" />
+    </div>
   );
 };
 

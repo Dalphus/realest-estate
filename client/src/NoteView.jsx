@@ -15,13 +15,17 @@ class NoteView extends React.Component {
     const setState = this.setState.bind(this);
     axios.get('/notes')
       .then((res) => {
-        setState({ notes: res.body });
+        setState({ notes: res.data });
       });
   }
 
   render() {
     return (
-      <Note text="good note"/>
+      <div id="note-list">
+        {this.state.notes.map((note) => (
+          <Note text={note.body} title={note.title} />
+        ))}
+      </div>
     );
   }
 }
