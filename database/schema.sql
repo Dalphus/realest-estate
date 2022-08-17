@@ -5,6 +5,26 @@ CREATE DATABASE supernote;
 
 CREATE TABLE test (
   id SERIAL PRIMARY KEY NOT NULL,
-  num INTEGER DEFAULT 1
+  num INT DEFAULT 1
 );
 INSERT INTO test VALUES (1), (1123), (6781), (4561);
+
+CREATE TABLE notes (
+  id SERIAL PRIMARY KEY NOT NULL,
+  body TEXT NOT NULL,
+  title VARCHAR(30),
+  importance INT DEFAULT 0
+);
+
+CREATE TABLE tags (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(30)
+);
+
+CREATE TABLE note_tags (
+  id SERIAL PRIMARY KEY NOT NULL,
+  note_id INT NOT NULL,
+  tag_id INT NOT NULL,
+  FOREIGN KEY (note_id) REFERENCES notes(id),
+  FOREIGN KEY (tag_id) REFERENCES tags(id)
+);
