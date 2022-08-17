@@ -48,8 +48,8 @@ class NoteForm extends React.Component {
   }
   render() {
     return (
-      <form id='add-note-form' onSubmit={this.handleSubmit}>
-        <button className='close-form' onClick={this.props.toggleForm}>x</button>
+      <form id='add-note-form' onSubmit={this.handleSubmit} autoComplete="off">
+        <button className='close-form' onClick={this.props.close}>✕</button>
 
         <label>Title (optional):</label>
         <input type='text' id='note-title' onChange={this.handleChange} value={this.state.title} />

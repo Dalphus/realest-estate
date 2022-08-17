@@ -12,6 +12,7 @@ html, body {
 
 #app {
   width: 100vw;
+  /* position: relative; */
 }
 .container {
   display: flex;
@@ -56,15 +57,41 @@ html, body {
 /*********************** NOTE STYLES ***********************/
 
 .note {
-  width: 100%;
   background-color: rgb(37, 37, 37);
+
+  width: calc(100%-30px);
+  margin: 10px;
+  padding: 10px;
+
+  border: 1px solid #222;
+  border-radius: 4px;
+}
+.note h1 {
+  font-size: 30px;
+  text-transform: capitalize;
+  margin-bottom: 15px;
 }
 
 /*********************** END NOTE STYLES ***********************/
 /*********************** ADD NOTE FORM ***********************/
 
 #add-note-form {
-  
+  padding: 20px; 
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #555;
+}
+#add-note-form .close-form {
+  background-color: transparent;
+  margin-top: -20px;
+  margin-right: -10px;
+  font: 25px monospace;
+  color: white;
+  float: right;
+}
+#add-note-form label {
+  display: block;
 }
 
 /*********************** END ADD NOTE FORM ***********************/

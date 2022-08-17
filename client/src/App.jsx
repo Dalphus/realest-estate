@@ -3,7 +3,6 @@ import React from 'react';
 import Search from './Search';
 import NoteView from './NoteView';
 import Discovery from './discovery/Discovery';
-import AddNote from './form/AddNote';
 
 function App() {
   return (<>
@@ -14,8 +13,7 @@ function App() {
       </div>
       <Discovery />
     </div>
-    <AddNote />
-  </>)
+  </>);
 }
 
 export default App;

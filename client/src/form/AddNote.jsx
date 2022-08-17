@@ -2,8 +2,9 @@ import React from "react";
 
 import NoteForm from "./NoteForm";
 
-function handleClick() {
-  this.setState({ showNoteForm: true });
+function handleClick(e) {
+  if( e ) e.preventDefault();
+  this.setState({ showNoteForm: !this.state.showNoteForm });
 }
 
 class AddNote extends React.Component {
@@ -11,17 +12,14 @@ class AddNote extends React.Component {
     super(props);
 
     this.state = {
-      showNoteForm: false
+      showNoteForm: true
     };
     this.handleClick = handleClick.bind(this);
   }
 
   render() {
     return (
-      <div>
-        {this.state.showNoteForm && <NoteForm toggleForm={this.handleClick} />}
-        <button id="add-note" onClick={this.handleClick}>+</button>
-      </div>
+
     );
   }
 }
