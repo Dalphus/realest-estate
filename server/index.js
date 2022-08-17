@@ -2,7 +2,7 @@ const express = require('express');
 // import path from 'path';
 require('dotenv').config();
 
-const { getNotes, getTestData } = require('../database/controllers');
+const { getNotes, addNote } = require('../database/controllers');
 
 const app = express();
 app.use(express.json());
@@ -13,6 +13,12 @@ app.get('/notes', (req, res) => {
     .then((data) => {
       res.status(200);
       res.send(data);
+    })
+})
+app.post('/notes', (req, res) => {
+  addNote(req.body)
+    .then(() => {
+      res.sendStatus(201);
     })
 })
 

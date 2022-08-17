@@ -16,9 +16,23 @@ const getNotes = () => {
   return db.query(queryString)
     .then((res) => res.rows)
     .catch(errorHandler);
-}
+};
+
+const addNote = (note) => {
+  const queryString =
+  `INSERT INTO notes (
+    body,
+    title
+  ) VALUES (
+    '${note.body}',
+    '${note.title}'
+  )`
+
+  return db.query(queryString);
+};
 
 module.exports = {
   getTestData,
-  getNotes
+  getNotes,
+  addNote
 };
