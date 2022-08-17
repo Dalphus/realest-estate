@@ -23,10 +23,12 @@ function handleChange(e) {
 };
 
 function toggleTag(tag) {
+  const oldTags = this.state.tags;
   let newTags;
 
   if (this.state.tags.includes(tag)) {
-    newTags = this.state.tags.slice(0, i).concat(this.state.tags.slice(i + 1));
+    const index = oldTags.indexOf(tag);
+    newTags = oldTags.slice(0, index).concat(oldTags.slice(index + 1));
   } else {
     newTags = this.state.tags.slice().concat(tag);
   }
@@ -46,15 +48,16 @@ class NoteForm extends React.Component {
   }
   render() {
     return (
-      <form id="add-note-form" onSubmit={this.handleSubmit}>
+      <form id='add-note-form' onSubmit={this.handleSubmit}>
+        <button className='close-form' onClick={this.props.toggleForm}>x</button>
 
         <label>Title (optional):</label>
-        <input type='text' id='note-title' onChange={this.handleChange} />
+        <input type='text' id='note-title' onChange={this.handleChange} value={this.state.title} />
 
-        <label htmlFor="note-body">Body:</label>
-        <textarea id='note-body' onChange={this.handleChange} required />
+        <label htmlFor='note-body'>Body:</label>
+        <textarea id='note-body' onChange={this.handleChange} value={this.state.body} required />
         
-        <TagSearch toggleTag={toggleTag} tags={this.state.tags}/>
+        <TagSearch toggleTag={this.toggleTag} tags={this.state.tags}/>
 
         <button type='submit'>ADD NOTE</button>
       </form>

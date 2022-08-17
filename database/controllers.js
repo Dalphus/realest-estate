@@ -40,7 +40,6 @@ const getTags = (query) => {
 
   return db.query(queryString)
     .then((res) =>  {
-      console.log(res.rows);
       return res.rows[0].array || [];
     })
     .catch(errorHandler);

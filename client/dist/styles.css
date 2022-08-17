@@ -68,3 +68,11 @@ html, body {
 }
 
 /*********************** END ADD NOTE FORM ***********************/
+/*********************** TAG STYLES ***********************/
+
+.tag-container button {
+  display: inline-block;
+  margin: 10px;
+}
+
+/*********************** END TAG STYLES ***********************/

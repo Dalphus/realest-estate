@@ -19,7 +19,7 @@ class AddNote extends React.Component {
   render() {
     return (
       <div>
-        {this.state.showNoteForm && <NoteForm />}
+        {this.state.showNoteForm && <NoteForm toggleForm={this.handleClick} />}
         <button id="add-note" onClick={this.handleClick}>+</button>
       </div>
     );

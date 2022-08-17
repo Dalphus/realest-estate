@@ -1,6 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 
+function handleClick(e) {
+  e.preventDefault();
+  console.log(e.target.value);
+  this.props.toggleTag(e.target.value);
+}
 
 function handleChange(e) {
   this.setState({ query: e.target.value });
@@ -20,21 +25,21 @@ class TagSearch extends React.Component {
     this.state = { query: '', searchTags: [] };
 
     this.handleChange = handleChange.bind(this);
+    this.handleClick = handleClick.bind(this);
   }
   render() {
-    this.props.toggleTag
     return (
       <div>
         <input type='text' id='tag-search' value={this.state.query} onChange={this.handleChange} />
 
         <div className='tag-container active-tags'>
           {this.props.tags.map((tag) => (
-            <div key={tag}>{tag}</div>
+            <button key={tag} onClick={this.handleClick} value={tag}>{tag}</button>
           ))}
         </div>
         <div className='tag-container'>
           {this.state.searchTags.map((tag) => (
-            <div key={tag}>{tag}</div>
+            <button key={tag} onClick={this.handleClick} value={tag}>{tag}</button>
           ))}
         </div>
         
