@@ -1,6 +1,9 @@
+const getTestData = () => {
+  const queryString = 'SELECT * FROM test';
 
-function getData() {
+  return db.query(queryString)
+    .then((res) => res.rows)
+    .catch(errorHandler);
+};
 
-}
-
-export default getData;
+export default getTestData;

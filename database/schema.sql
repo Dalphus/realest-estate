@@ -1,0 +1,10 @@
+DROP DATABASE IF EXISTS supernote;
+CREATE DATABASE supernote;
+
+\c supernote
+
+CREATE TABLE test (
+  id SERIAL PRIMARY KEY NOT NULL,
+  num INTEGER DEFAULT 1
+);
+INSERT INTO test VALUES (1), (1123), (6781), (4561);
