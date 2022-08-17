@@ -2,8 +2,8 @@ import React from 'react';
 
 import Search from './Search';
 import NoteView from './NoteView';
-import Discovery from './Discovery';
-import AddNote from './AddNote';
+import Discovery from './discovery/Discovery';
+import AddNote from './form/AddNote';
 
 function App() {
   return (<>

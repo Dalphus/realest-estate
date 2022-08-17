@@ -28,11 +28,27 @@ const addNote = (note) => {
     '${note.title}'
   )`
 
-  return db.query(queryString);
+  return db.query(queryString)
+    .catch(errorHandler);
 };
+
+const getTags = (query) => {
+  const queryString =
+  `SELECT array_agg(name::TEXT) AS array
+  FROM tags
+  WHERE name LIKE '${query}%'`;
+
+  return db.query(queryString)
+    .then((res) =>  {
+      console.log(res.rows);
+      return res.rows[0].array || [];
+    })
+    .catch(errorHandler);
+}
 
 module.exports = {
   getTestData,
   getNotes,
-  addNote
+  addNote,
+  getTags
 };
