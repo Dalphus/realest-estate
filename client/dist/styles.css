@@ -20,7 +20,10 @@ html, body {
 }
 .note-viewer {
   width: 700px;
+  height: 100vh;
   margin: 0 35px;
+
+  overflow-y: scroll;
 }
 
 /*********************** END CONTAINER STYLES ***********************/

@@ -30,6 +30,14 @@ app.get('/tags/:query', (req, res) => {
     });
 });
 
+app.get('/notetags/:id', (req, res) => {
+  getNoteTags(req.params.id)
+    .then((data) => {
+      res.status(200);
+      res.send(data);
+    });
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`listening on port ${process.env.PORT}`);
 });

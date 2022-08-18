@@ -3,7 +3,6 @@ import axios from 'axios';
 
 function handleClick(e) {
   e.preventDefault();
-  console.log(e.target.value);
   this.props.toggleTag(e.target.value);
 }
 

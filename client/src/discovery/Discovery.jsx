@@ -25,7 +25,6 @@ class Discovery extends React.Component {
   render() {
     return (<>
       <div id="discovery">
-        <Note text="bad note" />
       </div>
       <button id="add-note" onClick={this.handleClick}>+</button>
       {this.state.showNoteForm && <NoteForm close={this.handleClick} />}

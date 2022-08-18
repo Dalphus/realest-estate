@@ -30,9 +30,7 @@ const addNote = (note) => {
 
   return db.query(queryString)
     .then((res) => {
-      console.log(note.tags);
       if (note.tags.length) {
-        console.log('adding tags');
         return addTags(res.rows[0].id, note.tags);
       }
     })
@@ -40,7 +38,6 @@ const addNote = (note) => {
 };
 
 const addTags = (note_id, tags) => {
-  
   const queryString =
   `INSERT INTO note_tags (note_id , tag_id) 
   VALUES
@@ -48,7 +45,6 @@ const addTags = (note_id, tags) => {
     `(${note_id}, (SELECT id FROM tags WHERE name='${tag}')),`
   )).join('\n').slice(0, -1)}`
   
-  console.log(queryString);
   return db.query(queryString)
     .catch(errorHandler);
 }
@@ -66,9 +62,23 @@ const getTags = (query) => {
     .catch(errorHandler);
 }
 
+const getNoteTags = (note_id) => {
+  const queryString =
+  `SELECT array_agg(name::TEXT) AS array
+  FROM tags
+  WHERE notes.id = ${note_id}%`;
+
+  return db.query(queryString)
+    .then((res) =>  {
+      return res.rows[0].array || [];
+    })
+    .catch(errorHandler);
+}
+
 module.exports = {
   getTestData,
   getNotes,
   addNote,
-  getTags
+  getTags,
+  getNoteTags
 };
