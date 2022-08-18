@@ -35,7 +35,7 @@ class NoteView extends React.Component {
   render() {
     return (
       <div id="note-list">
-        {displayNotes(this.props.notes)}
+        {this.props.notes !== undefined && displayNotes(this.props.notes)}
       </div>
     );
   }

@@ -24,6 +24,13 @@ html, body {
 
   overflow-y: scroll;
 }
+#discovery h2 {
+  background-color: #555;
+  color: white;
+  font-size: 40;
+  text-align: center;
+  width: 100%;
+}
 
 /*********************** END CONTAINER STYLES ***********************/
 /*********************** SEARCH STYLES ***********************/
@@ -84,8 +91,8 @@ html, body {
 #add-note-form {
   padding: 20px; 
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 200px;
+  top: 250px;
   border: 1px solid #555;
 }
 #add-note-form .close-form {

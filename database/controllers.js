@@ -18,6 +18,21 @@ const getNotes = () => {
     .catch(errorHandler);
 };
 
+const getNotesByTag = (tag) => {
+  const queryString =
+  `SELECT notes.id, notes.title, notes.body
+  FROM notes, tags, note_tags
+  WHERE tags.name = '${tag}'
+  AND note_tags.tag_id = tags.id
+  AND note_tags.note_id = notes.id`;
+
+  console.log(queryString);
+
+  return db.query(queryString)
+    .then((res) => res.rows)
+    .catch(errorHandler);
+};
+
 const addNote = (note) => {
   const queryString =
   `INSERT INTO notes (
@@ -82,5 +97,6 @@ module.exports = {
   getNotes,
   addNote,
   getTags,
-  getNoteTags
+  getNoteTags,
+  getNotesByTag
 };

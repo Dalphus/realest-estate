@@ -8,7 +8,6 @@ function Note({ id, title, text }) {
   useEffect(() => {
     axios.get(`/notetags/${id}`)
       .then((res) => {
-        console.log(res.data);
         setTags(res.data)
       });
   }, []);

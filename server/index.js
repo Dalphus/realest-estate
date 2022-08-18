@@ -2,7 +2,7 @@ const express = require('express');
 // import path from 'path';
 require('dotenv').config();
 
-const { getNotes, addNote, getTags, getNoteTags } = require('../database/controllers');
+const { getNotes, addNote, getTags, getNoteTags, getNotesByTag } = require('../database/controllers');
 
 const app = express();
 app.use(express.json());
@@ -15,6 +15,22 @@ app.get('/notes', (req, res) => {
       res.send(data);
     })
 });
+app.get('/notes/:query', (req, res) => {
+  if (req.params.query) {
+    getNotesByTag(req.params.query)
+      .then((data) => {
+        res.status(200);
+        res.send(data);
+      })
+  } else {
+    getNotes()
+      .then((data) => {
+        res.status(200);
+        res.send(data);
+      })
+  }
+});
+
 app.post('/notes', (req, res) => {
   addNote(req.body)
     .then(() => {
