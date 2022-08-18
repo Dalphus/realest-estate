@@ -3,28 +3,39 @@ import axios from 'axios';
 
 import Note from './Note';
 
+function displayNotes(notes) {
+  const noteComponents = [];
+  for (let i = notes.length; i > 0; i--) {
+    const note = notes[i - 1];
+    noteComponents.push(
+      <Note
+        key={note.id}
+        id={note.id}
+        text={note.body}
+        title={note.title}
+      />
+    );
+  }
+
+  return noteComponents;
+}
+
 class NoteView extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      notes: []
-    };
   }
   componentDidMount() {
-    const setState = this.setState.bind(this);
+    const setNotes = this.props.setNotes.bind(this);
     axios.get('/notes')
       .then((res) => {
-        setState({ notes: res.data });
+        setNotes(res.data);
       });
   }
 
   render() {
     return (
       <div id="note-list">
-        {this.state.notes.map((note, i) => (
-          <Note key={note.id} id={note.id} text={note.body} title={note.title} />
-        ))}
+        {displayNotes(this.props.notes)}
       </div>
     );
   }

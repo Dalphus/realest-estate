@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import TagSearch from './TagSearch';
+function Search({ query, handleChange }) {
 
-function Search() {
   return (
     <div id='search'>
-      <input type='text' placeholder='Search by tags here'/>
+      <input type='text' onChange={handleChange} placeholder='Search by tags here' value={query}/>
     </div>
   );
 }

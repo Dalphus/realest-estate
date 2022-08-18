@@ -121,5 +121,9 @@ html, body {
   margin: 7px;
   border: 1px solid rgb(84, 84, 84);
 }
+.active-tags button {
+  background-color: rgb(190, 190, 190);
+  color: black;
+}
 
 /*********************** END TAG STYLES ***********************/
