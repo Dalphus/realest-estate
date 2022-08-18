@@ -12,7 +12,6 @@ html, body {
 
 #app {
   width: 100vw;
-  /* position: relative; */
 }
 .container {
   display: flex;
@@ -21,7 +20,7 @@ html, body {
 .note-viewer {
   width: 700px;
   height: 100vh;
-  margin: 0 35px;
+  margin: 0 35px 0 45px;
 
   overflow-y: scroll;
 }
@@ -36,6 +35,7 @@ html, body {
 #search input {
   width: 100%;
   height: 35px;
+  text-align: center;
 }
 
 /*********************** END SEARCH STYLES ***********************/
@@ -59,10 +59,13 @@ html, body {
 /*********************** END BUTTON STYLES ***********************/
 /*********************** NOTE STYLES ***********************/
 
+#note-list {
+  margin-right: 10px;
+}
 .note {
   background-color: rgb(37, 37, 37);
 
-  width: calc(100%-30px);
+  width: auto;
   margin: 10px;
   padding: 10px;
 
@@ -100,9 +103,23 @@ html, body {
 /*********************** END ADD NOTE FORM ***********************/
 /*********************** TAG STYLES ***********************/
 
+.tag-container {
+  margin-top: 10px;;
+  transition: all 1s;
+}
+
+.tag-container p {
+  padding-top: 10px;
+  color: rgba(255, 255, 255, 0.242);
+  font-style: italic;
+}
 .tag-container button {
+  background-color: black;
+  color: rgb(190, 190, 190);
   display: inline-block;
-  margin: 10px;
+  padding: 5px;
+  margin: 7px;
+  border: 1px solid rgb(84, 84, 84);
 }
 
 /*********************** END TAG STYLES ***********************/

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Note from '../Note';
-import NoteForm from '../form/NoteForm';
+import Note from './Note';
+import NoteForm from './NoteForm';
 
 function toggleNoteForm() {
   this.setState({ showNoteForm: !this.state.showNoteForm });

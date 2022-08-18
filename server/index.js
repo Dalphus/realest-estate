@@ -2,7 +2,7 @@ const express = require('express');
 // import path from 'path';
 require('dotenv').config();
 
-const { getNotes, addNote, getTags } = require('../database/controllers');
+const { getNotes, addNote, getTags, getNoteTags } = require('../database/controllers');
 
 const app = express();
 app.use(express.json());

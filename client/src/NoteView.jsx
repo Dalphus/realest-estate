@@ -23,7 +23,7 @@ class NoteView extends React.Component {
     return (
       <div id="note-list">
         {this.state.notes.map((note, i) => (
-          <Note key={i} text={note.body} title={note.title} />
+          <Note key={note.id} id={note.id} text={note.body} title={note.title} />
         ))}
       </div>
     );

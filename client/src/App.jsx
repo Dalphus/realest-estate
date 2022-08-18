@@ -2,7 +2,7 @@ import React from 'react';
 
 import Search from './Search';
 import NoteView from './NoteView';
-import Discovery from './discovery/Discovery';
+import Discovery from './Discovery';
 
 function App() {
   return (<>

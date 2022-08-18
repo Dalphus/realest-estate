@@ -11,7 +11,7 @@ const getTestData = () => {
 };
 
 const getNotes = () => {
-  const queryString = 'SELECT title, body FROM notes';
+  const queryString = 'SELECT * FROM notes';
 
   return db.query(queryString)
     .then((res) => res.rows)
@@ -65,8 +65,10 @@ const getTags = (query) => {
 const getNoteTags = (note_id) => {
   const queryString =
   `SELECT array_agg(name::TEXT) AS array
-  FROM tags
-  WHERE notes.id = ${note_id}%`;
+  FROM tags, note_tags, notes
+  WHERE notes.id = ${note_id}
+  AND note_tags.tag_id = tags.id
+  AND note_tags.note_id = notes.id`;
 
   return db.query(queryString)
     .then((res) =>  {
