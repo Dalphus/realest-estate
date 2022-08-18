@@ -18,7 +18,7 @@ CREATE TABLE notes (
 
 CREATE TABLE tags (
   id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(30)
+  name VARCHAR(30) UNIQUE
 );
 
 CREATE TABLE note_tags (

@@ -10,11 +10,8 @@ const idToState = {
 
 function handleSubmit(e) {
   e.preventDefault();
-  axios.post('/notes', {
-    title: this.state.title,
-    body: this.state.body,
-    tags: []
-  });
+  axios.post('/notes', this.state);
+  
   this.setState({ title: '', body: '', tags: [] });
 };
 
